@@ -1,0 +1,28 @@
+
+<div style="margin-left:30em;margin-top:5em">
+    <label for="location">Enter Location name</label>
+    <input type="text" id="location" style="width:20em;height: 8em;" [(ngModel)]="location">
+<button type="button" (click)="getLocationWeather(location)">Find</button>
+</div>
+<button type="button" (click)="getAllWeatherDetails()">Show ALL Data</button>
+<div *ngIf="locationDetails">
+  <table>
+   <thead>
+    <tr>
+        <th>NAME</th>
+        <th>Region</th>
+        <th>Country</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr><td>{{locationDetails.location.name}}</td>
+        <td>{{locationDetails.location.region}}</td>
+        <td>{{locationDetails.location.country}}</td></tr>
+   </tbody>
+  </table>
+</div>
+<div *ngIf="showWeatherDetails">
+    <div *ngFor="let row of weatherDetails">
+        <div>{{row | json}}</div>
+    </div>
+</div>
